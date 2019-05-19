@@ -8,6 +8,9 @@ class SimpleWSGI:
         self.routes = dict()
 
     def __call__(self, environ, start_response):
+
+        print('\n\n environ=', dict(environ))
+
         url = environ['PATH_INFO']
         method = environ['REQUEST_METHOD']
         route_handler, url_args = self.choose_route_handler(url, method)
