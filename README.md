@@ -2,11 +2,12 @@
 
 **simple_wsgi_fw** - simplest wsgi framework created as otus 2019 web developer course homework. Code is based on Ilya Lebedev template. 
  * Modified: 
-    * vars and functions names. 
+    * vars and functions names,
+    * split in two files
  * Added: 
     * settings for python3 under Ubuntu 19.04, 
-    * call router handler if method is not allowed,
-    * process query params,
+    * call special router handler if method is not allowed,
+    * process request query params,
     * process request body with json data
 
 **test_wsgi_fw** - simulates application which uses the **simple_wsgi_fw** framework
