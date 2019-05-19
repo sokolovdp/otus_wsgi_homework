@@ -3,6 +3,7 @@
 **simple_wsgi_fw** - simplest wsgi framework created as otus 2019 web developer course homework. Code is based on Ilya Lebedev template. 
  * Modified: 
     * vars and functions names,
+    * minor style corrections
     * split in two files
  * Added: 
     * settings for python3 under Ubuntu 19.04, 
