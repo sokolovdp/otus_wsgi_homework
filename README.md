@@ -4,7 +4,7 @@
  settings for python3 under Ubuntu 19.04, 
  call router handler if method is not allowed,
  process query params,
- process json data for POST
+ process request body with json data
 
 **test_wsgi_fw** - simulates application which uses the **simple_wsgi_fw** framework
 
