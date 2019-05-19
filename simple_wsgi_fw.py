@@ -12,6 +12,11 @@ class SimpleWSGI:
         method = environ['REQUEST_METHOD']
         request_body = None
 
+        # print('\n\n*******', dict(environ))
+
+        query = environ['QUERY_STRING']
+        query_params = query.split('&') if query else None
+
         if environ['CONTENT_TYPE'] == 'application/json':
             try:
                 request_body_size = int(environ.get('CONTENT_LENGTH', 0))
@@ -21,7 +26,7 @@ class SimpleWSGI:
                 request_body = environ['wsgi.input'].read(request_body_size)
 
         route_handler, url_args = self.choose_route_handler(url, method)
-        status_code, extra_headers, response_content = route_handler(environ, url_args, request_body)
+        status_code, extra_headers, response_content = route_handler(environ, url_args, query_params, request_body)
         content_type = 'text/plain'
         if not type(response_content) is str:
             response_content = json.dumps(response_content)
