@@ -1,6 +1,10 @@
 ## Simple framework simulation for uWSGI package
 
-**simple_wsgi_fw** - simplest wsgi framework created as otus 2019 web developer course. Cod is based on Ilya Lebedev template. Mofified: vars and functions names. Added: settings for python3 under Ubuntu 19.04, call router handler if method is not allowed, process json data for POST
+**simple_wsgi_fw** - simplest wsgi framework created as otus 2019 web developer course. Code is based on Ilya Lebedev template. Modified: vars and functions names. Added: 
+ settings for python3 under Ubuntu 19.04, 
+ call router handler if method is not allowed,
+ process query params,
+ process json data for POST
 
 **test_wsgi_fw** - simulates application which uses the **simple_wsgi_fw** framework
 
