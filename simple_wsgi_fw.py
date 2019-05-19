@@ -8,17 +8,24 @@ class SimpleWSGI:
         self.routes = dict()
 
     def __call__(self, environ, start_response):
-
-        print('\n\n environ=', dict(environ))
-
         url = environ['PATH_INFO']
         method = environ['REQUEST_METHOD']
+        request_body = None
+
+        if environ['CONTENT_TYPE'] == 'application/json':
+            try:
+                request_body_size = int(environ.get('CONTENT_LENGTH', 0))
+            except ValueError:
+                request_body_size = 0
+            else:
+                request_body = environ['wsgi.input'].read(request_body_size)
+
         route_handler, url_args = self.choose_route_handler(url, method)
-        status_code, extra_headers, response_content = route_handler(environ, url_args)
+        status_code, extra_headers, response_content = route_handler(environ, url_args, request_body)
         content_type = 'text/plain'
         if not type(response_content) is str:
             response_content = json.dumps(response_content)
-            content_type = 'text/json'
+            content_type = 'application/json'
         headers = {'Content-Type': content_type, }
         headers.update(extra_headers)
 
@@ -55,15 +62,15 @@ class SimpleWSGI:
         return wrapper
 
     @staticmethod
-    def route_not_found(environ, url_args):
+    def route_not_found(*args):
         response_content = 'Page not found!'
         return 404, {}, response_content
 
     @staticmethod
-    def not_allowed_route(environ, url_args):
+    def not_allowed_route(*args):
         response_content = 'Method not allowed!'
         return 405, {}, response_content
 
     @staticmethod
-    def no_trailing_slash_route(environ, url_args):
+    def no_trailing_slash_route(environ, *args):
         return 301, {'Location': f"{environ['PATH_INFO']}/"}, 'Moved permanently!'
