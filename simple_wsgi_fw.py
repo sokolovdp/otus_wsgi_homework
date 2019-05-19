@@ -63,22 +63,4 @@ class SimpleWSGI:
 
     @staticmethod
     def no_trailing_slash_route(environ, url_args):
-        return 301, {'Location': f"{environ['PATH_INFO']}/"}, 'Moved permanently'
-
-#
-# application = SokolWSGI()  # application is the name UWSGI is looking for in the module
-#
-#
-# @application.add_route(r'^/$', methods=('GET', 'POST'))
-# def index_page_handler(environ, url_args):
-#     return 200, {}, 'Index'
-#
-#
-# @application.add_route(r'^/info/$', methods=('POST', ))
-# def info_page_handler(environ, url_args):
-#     return 200, {}, {'user_ip': environ['REMOTE_ADDR']}
-#
-#
-# @application.add_route(r'^/lessons/(?P<lesson_id>\d+)/$')
-# def info_page_handler(environ, url_args):
-#     return 200, {}, {'lesson_id': url_args['lesson_id']}
+        return 301, {'Location': f"{environ['PATH_INFO']}/"}, 'Moved permanently!'
