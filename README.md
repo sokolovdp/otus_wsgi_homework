@@ -27,6 +27,10 @@ sudo apt install uwsgi-plugin-python3
 ## Sample of request and response
 ```
 POST: http://127.0.0.1:8000/api/?param1=123&param2=test
+BODY: 
+{
+    "json": "is_working"
+}
 {
     "remote_ip": "127.0.0.1",
     "query_params": [
