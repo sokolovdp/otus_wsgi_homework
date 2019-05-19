@@ -2,11 +2,11 @@
 
 **simple_wsgi_fw** - simplest wsgi framework created as otus 2019 web developer course, and based on Ilya Lebedev template. Added: settings for python3 under Ubuntu 19.04, call router handler if method is not allowed, process json data for POST
 
-**test_wsgi_fw** - simulates application which uses the **sokol_router** framework
+**test_wsgi_fw** - simulates application which uses the **simple_wsgi_fw** framework
 
 ## To Start uWSGI application test
 ```
-uwsgi --http-socket 127.0.0.1:8000 --ini my_uwsgi.ini
+uwsgi --http-socket 127.0.0.1:8000 --ini test_wsgi_fw.ini
 ```
 ## UWSGI ini file
 ```
