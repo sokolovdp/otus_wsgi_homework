@@ -4,7 +4,7 @@
  * Modified: 
     * vars and functions names,
     * minor style corrections
-    * split in two files
+    * split in two files: framework and test
  * Added: 
     * settings for python3 under Ubuntu 19.04, 
     * call special router handler if method is not allowed,
