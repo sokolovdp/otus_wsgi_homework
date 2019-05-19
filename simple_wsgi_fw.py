@@ -17,7 +17,7 @@ class SimpleWSGI:
         query = environ['QUERY_STRING']
         query_params = query.split('&') if query else None
 
-        if environ['CONTENT_TYPE'] == 'application/json':
+        if environ.get('CONTENT_TYPE') and environ['CONTENT_TYPE'] == 'application/json':
             try:
                 request_body_size = int(environ.get('CONTENT_LENGTH', 0))
             except ValueError:
