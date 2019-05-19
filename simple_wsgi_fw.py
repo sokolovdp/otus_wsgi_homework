@@ -11,9 +11,6 @@ class SimpleWSGI:
         url = environ['PATH_INFO']
         method = environ['REQUEST_METHOD']
         request_body = None
-
-        # print('\n\n*******', dict(environ))
-
         query = environ['QUERY_STRING']
         query_params = query.split('&') if query else None
 
