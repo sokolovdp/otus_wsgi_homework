@@ -16,7 +16,7 @@ class SimpleWSGI:
             try:
                 request_body_size = int(environ.get('CONTENT_LENGTH', 0))
             except ValueError:
-                request_body_size = 0
+                pass
             else:
                 request_body = environ['wsgi.input'].read(request_body_size)
 
